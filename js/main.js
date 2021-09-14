@@ -34,20 +34,19 @@ const slot = () => {
     document.right.src = list[right];
 
 //Mostrar os números durante o processo de geração de números.
-    if (counter > 5){
+    if (counter > 20){
       let final_left = list[left];
       let final_center = list[center];
       let final_right = list[right];
 // Mostrar cinco números durante o processo de geração em 10 mm / s.
 
-      if ((final_left == final_center) || (final_left == final_right) || (final_center == final_right) ) {
+      if ((final_left === final_center) && (final_center === final_right) && (final_right === final_left)) {
+        document.getElementById("all").innerHTML = "Você ganhou o primeiro prêmio!";
+//Quando todos os três números coincidirem, o usuário receberá o primeiro prêmio.
+
+      }else if ((final_left === final_center) || (final_center === final_right) || (final_right === final_left)) {
         document.getElementById("all").innerHTML = "Você ganhou o segundo prêmio!";
 //Neste caso, se dois de três números corresponderem, o usuário receberá o segundo prêmio.
-
-      } else if ((final_left == final_center) && (final_left == final_right) && (final_center == final_right)) {
-        document.getElementById("all").innerHTML = "Você ganhou o primeiro prêmio!";
-
-//Quando todos os três números coincidirem, o usuário receberá o primeiro prêmio.
 
       } else  {
         document.getElementById("all").innerHTML = "Você Perdeu. Tente Novamente!";
